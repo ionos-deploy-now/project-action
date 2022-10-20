@@ -1,0 +1,30 @@
+name: 'IONOS Deploy Now - Project Action'
+description: 'Interact with IONOS Deploy Now to perform different actions on a project'
+inputs:
+  service-host:
+    description: 'The service endpoint to call in the action'
+    required: true
+  api-key:
+    description: 'The api key to access IONOS Deploy Now'
+    required: true
+  project-id:
+    description: 'The identifier of the IONOS Deploy Now project'
+    required: true
+  branch-id:
+    description: 'The identifier of a branch'
+    required: false
+  deployment-id:
+    description: 'The identifier of a deployment'
+    required: false
+  status:
+    description: 'The status to set for a deployment'
+    required: false
+  action:
+    description: 'The action to perform'
+    required: true
+outputs:
+  info:
+    description: 'A json object containing the requested info'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
