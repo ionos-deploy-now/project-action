@@ -1,0 +1,28 @@
+name: 'Get Project Info'
+description: 'Ask Build with ionos API to retrieve project info'
+inputs:
+  service-host:
+    description: 'The service endpoint to call in the action'
+    required: true
+  api-key:
+    description: 'The api key to access build with ionos'
+    required: true
+  project:
+    description: 'The project to deploy with build with ionos'
+    required: true
+outputs:
+  site-url:
+    description: 'The site url of the webspace'
+  remote-host:
+    description: 'The ssh url of the webspace'
+  branch-id:
+    description: 'The IONOS.space branch id'
+  storage-quota:
+    description: 'The allowed quota for the storage'
+  deployment-enabled:
+    description: 'Is the deployement enabled for this branch'
+  bootstrap-deploy:
+    description: "true if it's the first deployment"
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
