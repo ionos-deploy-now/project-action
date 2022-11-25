@@ -175,7 +175,7 @@ async function retrieveDeploymentInfo(
   return {
     info: {
       'remote-host': deployment.webspace.webspace.sshHost,
-      'bootstrap-deploy': false,
+      'last-deployment-date': deployment.state.lastDeployedDate?.toString(),
       'site-url': `https://${deployment.domain.name}`,
       'storage-quota': deployment.webspace.webspace.quota!.storageQuota,
       'webspace-id': deployment.webspace.webspace.id,

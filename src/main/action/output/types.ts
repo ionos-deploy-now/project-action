@@ -19,7 +19,7 @@ export type DeploymentInfo = {
   'site-url': string;
   'remote-host': string;
   'storage-quota': number;
-  'bootstrap-deploy': boolean;
+  'last-deployment-date'?: string;
   'webspace-id': string;
   'php-version'?: string;
 };
