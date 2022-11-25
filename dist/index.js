@@ -20028,6 +20028,7 @@ function retrieveProjectInfo(client, { projectId, branchName }) {
     });
 }
 function retrieveDeploymentInfo(client, { projectId, branchId, deploymentId }) {
+    var _a;
     return __awaiter(this, void 0, void 0, function* () {
         const deployment = yield new retry_1.default((retry, lastRetry) => __awaiter(this, void 0, void 0, function* () {
             return yield client.deploymentApi
@@ -20052,7 +20053,7 @@ function retrieveDeploymentInfo(client, { projectId, branchId, deploymentId }) {
         return {
             info: {
                 'remote-host': deployment.webspace.webspace.sshHost,
-                'bootstrap-deploy': false,
+                'last-deployment-date': (_a = deployment.state.lastDeployedDate) === null || _a === void 0 ? void 0 : _a.toString(),
                 'site-url': `https://${deployment.domain.name}`,
                 'storage-quota': deployment.webspace.webspace.quota.storageQuota,
                 'webspace-id': deployment.webspace.webspace.id,
