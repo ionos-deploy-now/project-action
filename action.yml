@@ -26,5 +26,5 @@ outputs:
   info:
     description: 'A json object containing the requested info'
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
