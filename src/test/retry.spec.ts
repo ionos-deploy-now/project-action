@@ -18,7 +18,7 @@ describe('Test retry method', () => {
             return retry();
           }
         }),
-      { count: 5 }
+      { count: 5 },
     ).run();
 
     expect(usedRetries).to.equal(0);
@@ -40,7 +40,7 @@ describe('Test retry method', () => {
             return retry();
           }
         }),
-      { count: 5 }
+      { count: 5 },
     ).run();
 
     expect(usedRetries).to.equal(2);
@@ -62,7 +62,7 @@ describe('Test retry method', () => {
             return retry();
           }
         }),
-      { count: 5 }
+      { count: 5 },
     ).run();
 
     expect(usedRetries).to.equal(5);
@@ -83,7 +83,7 @@ describe('Test retry method', () => {
             return retry();
           }
         }),
-      { count: 5 }
+      { count: 5 },
     ).run();
 
     expect(usedRetries).to.equal(-1);

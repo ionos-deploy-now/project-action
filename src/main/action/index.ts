@@ -41,7 +41,7 @@ export async function handleAction(parameter: Parameter): Promise<Record<string,
 
 async function setDeploymentsFinishedBranchStatus(
   client: DeployNowClient,
-  { projectId, branchId }: UpdateStatusParameter
+  { projectId, branchId }: UpdateStatusParameter,
 ) {
   await client.branchApi.finishDeployments('me', projectId, branchId).catch((error) => {
     throw new Error(`Failed to to inform Deploy Now that deployments have finished : ${getErrorMessage(error)}`);
@@ -50,7 +50,7 @@ async function setDeploymentsFinishedBranchStatus(
 
 async function updateDeploymentStatus(
   client: DeployNowClient,
-  { projectId, branchId, deploymentId, status, runId }: Required<UpdateStatusParameter>
+  { projectId, branchId, deploymentId, status, runId }: Required<UpdateStatusParameter>,
 ) {
   const state = getState(status);
   await client.deploymentApi
@@ -79,7 +79,7 @@ function getState(status: string): DeploymentState {
 
 export async function retrieveInfo(
   client: DeployNowClient,
-  parameter: RetrieveInfoParameter
+  parameter: RetrieveInfoParameter,
 ): Promise<Info<EnabledProject | DisabledProject | DeploymentInfo> | TemplateVariables<DeploymentVariables>> {
   if (!parameter.branchId && !parameter.deploymentId) {
     return await retrieveProjectInfo(client, parameter);
@@ -90,7 +90,7 @@ export async function retrieveInfo(
 
 async function retrieveProjectInfo(
   client: DeployNowClient,
-  { projectId, branchName }: RetrieveInfoParameter
+  { projectId, branchName }: RetrieveInfoParameter,
 ): Promise<Info<EnabledProject | DisabledProject>> {
   const branch = await new Retryable<BranchOverview>(
     async (retry, lastRetry) =>
@@ -109,7 +109,7 @@ async function retrieveProjectInfo(
         .catch((error) => {
           throw new Error(`Failed to fetch information about branch "${branchName}": ${getErrorMessage(error)}`);
         }),
-    { count: 5 }
+    { count: 5 },
   ).run();
 
   const deploymentCount = await new Retryable<number>(
@@ -129,7 +129,7 @@ async function retrieveProjectInfo(
         .catch((error) => {
           throw new Error(`Failed to get deployments for branch "${branchName}": ${getErrorMessage(error)}`);
         }),
-    { count: 5 }
+    { count: 5 },
   ).run();
 
   if (deploymentCount < 1) {
@@ -146,7 +146,7 @@ async function retrieveProjectInfo(
 
 async function retrieveDeploymentInfo(
   client: DeployNowClient,
-  { projectId, branchId, deploymentId }: Required<RetrieveInfoParameter>
+  { projectId, branchId, deploymentId }: Required<RetrieveInfoParameter>,
 ): Promise<Info<DeploymentInfo> & TemplateVariables<DeploymentVariables>> {
   const deployment = await new Retryable<Deployment>(
     async (retry, lastRetry) =>
@@ -169,7 +169,7 @@ async function retrieveDeploymentInfo(
         .catch((error) => {
           throw new Error('Failed to fetch information about deployment: ' + getErrorMessage(error));
         }),
-    { count: 5 }
+    { count: 5 },
   ).run();
 
   return {
@@ -189,7 +189,7 @@ async function retrieveDeploymentInfo(
 
 export async function dispatchDeployments(
   client: DeployNowClient,
-  { projectId, branchId, commitId }: DispatchDeploymentsParameter
+  { projectId, branchId, commitId }: DispatchDeploymentsParameter,
 ) {
   await client.branchApi
     .triggerDeployments('me', projectId, branchId, { version: commitId, onlyFailed: false })

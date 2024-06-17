@@ -16,5 +16,5 @@ Action.run<Parameter, Record<string, any>>(
       branchName: context.required('ref').replace(/refs\/heads\//g, ''),
       runId: context.required('runId'),
       commitId: context.required('sha'),
-    }
+    },
 );

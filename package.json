@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "scripts": {
     "lint": "eslint src --max-warnings=0 --ext .ts",
+    "lint:fix": "eslint src --max-warnings=0 --ext .ts --fix",
     "test": "mocha --require ts-node/register src/test/*.spec.ts",
     "build": "tsc",
     "release": "ncc build src/main/index.ts"
@@ -27,6 +28,7 @@
     "@vercel/ncc": "0.38.1",
     "chai": "^5.1.1",
     "chai-as-promised": "^8.0.0",
+    "eslint": "^8.57.0",
     "mocha": "^10.4.0",
     "sinon": "^18.0.0",
     "ts-node": "^10.9.2",
