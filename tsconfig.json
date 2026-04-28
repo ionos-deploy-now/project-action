@@ -10,6 +10,7 @@
     "ignoreDeprecations": "6.0",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
     "declaration": false,
     "sourceMap": true,
     "lib": ["es2020", "dom"]
