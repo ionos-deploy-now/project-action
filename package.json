@@ -1,12 +1,12 @@
 {
   "name": "project-action",
-  "version": "1.1.0",
+  "version": "1.2.1-beta1",
   "scripts": {
     "lint": "eslint src --max-warnings=0 --ext .ts",
     "lint:fix": "eslint src --max-warnings=0 --ext .ts --fix",
     "test": "mocha --require ts-node/register src/test/*.spec.ts",
     "build": "tsc",
-    "release": "ncc build src/main/index.ts"
+    "release": "esbuild src/main/index.ts --bundle --platform=node --target=node24 --conditions=import --outfile=dist/index.js"
   },
   "dependencies": {
     "@actions/core": "^3.0.0",
@@ -28,7 +28,7 @@
     "@types/sinon": "^21.0.1",
     "@typescript-eslint/eslint-plugin": "^8.59.1",
     "@typescript-eslint/parser": "^8.59.1",
-    "@vercel/ncc": "^0.38.4",
+    "esbuild": "^0.25.0",
     "chai": "^4.5.0",
     "chai-as-promised": "^8.0.2",
     "eslint": "^9.0.0",
