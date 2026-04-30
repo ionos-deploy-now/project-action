@@ -4,7 +4,7 @@
   "scripts": {
     "lint": "eslint src --max-warnings=0 --ext .ts",
     "lint:fix": "eslint src --max-warnings=0 --ext .ts --fix",
-    "test": "mocha --require ts-node/register src/test/*.spec.ts",
+    "test": "mocha --require ./src/test/setup.cjs --require ts-node/register src/test/*.spec.ts",
     "build": "tsc",
     "release": "esbuild src/main/index.ts --bundle --platform=node --target=node24 --conditions=import --outfile=dist/index.js"
   },
