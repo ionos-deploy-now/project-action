@@ -129,9 +129,9 @@ describe('retrieveInfo', () => {
         {},
       );
 
-      await expect(
-        retrieveInfo(client, { projectId: 'proj-1', branchName: 'main' }),
-      ).to.be.rejectedWith('The setup of this DeployNow project is not fully completed yet');
+      await expect(retrieveInfo(client, { projectId: 'proj-1', branchName: 'main' })).to.be.rejectedWith(
+        'The setup of this DeployNow project is not fully completed yet',
+      );
     });
 
     it('throws when branch API errors', async () => {
@@ -142,9 +142,9 @@ describe('retrieveInfo', () => {
         {},
       );
 
-      await expect(
-        retrieveInfo(client, { projectId: 'proj-1', branchName: 'main' }),
-      ).to.be.rejectedWith('Failed to fetch information about branch "main"');
+      await expect(retrieveInfo(client, { projectId: 'proj-1', branchName: 'main' })).to.be.rejectedWith(
+        'Failed to fetch information about branch "main"',
+      );
     });
   });
 
@@ -255,7 +255,7 @@ describe('dispatchDeployments', () => {
         version: 'abc123',
         onlyFailed: false,
       }),
-    ).to.be.true;
+    ).to.equal(true);
   });
 
   it('throws when triggerDeployments fails', async () => {
@@ -305,9 +305,7 @@ describe('handleAction', () => {
   });
 
   it('update-status maps success to SUCCESS', async () => {
-    const updateStub = sandbox
-      .stub(AxiosIonosSpaceDeploymentApiClient.prototype, 'updateDeploymentState')
-      .resolves();
+    const updateStub = sandbox.stub(AxiosIonosSpaceDeploymentApiClient.prototype, 'updateDeploymentState').resolves();
 
     const result = await handleAction({
       ...baseParams,
@@ -325,13 +323,11 @@ describe('handleAction', () => {
         state: DeploymentState.SUCCESS,
         externalId: 'run-1',
       }),
-    ).to.be.true;
+    ).to.equal(true);
   });
 
   it('update-status maps failure to FAILED', async () => {
-    const updateStub = sandbox
-      .stub(AxiosIonosSpaceDeploymentApiClient.prototype, 'updateDeploymentState')
-      .resolves();
+    const updateStub = sandbox.stub(AxiosIonosSpaceDeploymentApiClient.prototype, 'updateDeploymentState').resolves();
 
     await handleAction({
       ...baseParams,
@@ -347,9 +343,7 @@ describe('handleAction', () => {
   });
 
   it('update-status maps cancelled to FAILED', async () => {
-    const updateStub = sandbox
-      .stub(AxiosIonosSpaceDeploymentApiClient.prototype, 'updateDeploymentState')
-      .resolves();
+    const updateStub = sandbox.stub(AxiosIonosSpaceDeploymentApiClient.prototype, 'updateDeploymentState').resolves();
 
     await handleAction({
       ...baseParams,
@@ -365,9 +359,7 @@ describe('handleAction', () => {
   });
 
   it('update-status maps in_progress to RUNNING', async () => {
-    const updateStub = sandbox
-      .stub(AxiosIonosSpaceDeploymentApiClient.prototype, 'updateDeploymentState')
-      .resolves();
+    const updateStub = sandbox.stub(AxiosIonosSpaceDeploymentApiClient.prototype, 'updateDeploymentState').resolves();
 
     await handleAction({
       ...baseParams,
@@ -399,9 +391,7 @@ describe('handleAction', () => {
   });
 
   it('set-deployments-finished calls finishDeployments', async () => {
-    const finishStub = sandbox
-      .stub(AxiosIonosSpaceBranchApiClient.prototype, 'finishDeployments')
-      .resolves();
+    const finishStub = sandbox.stub(AxiosIonosSpaceBranchApiClient.prototype, 'finishDeployments').resolves();
 
     const result = await handleAction({
       ...baseParams,
@@ -413,13 +403,11 @@ describe('handleAction', () => {
     });
 
     expect(result).to.deep.equal({});
-    expect(finishStub.calledOnceWith('me', 'proj-1', 'b-1')).to.be.true;
+    expect(finishStub.calledOnceWith('me', 'proj-1', 'b-1')).to.equal(true);
   });
 
   it('dispatch-deployments calls triggerDeployments', async () => {
-    const triggerStub = sandbox
-      .stub(AxiosIonosSpaceBranchApiClient.prototype, 'triggerDeployments')
-      .resolves();
+    const triggerStub = sandbox.stub(AxiosIonosSpaceBranchApiClient.prototype, 'triggerDeployments').resolves();
 
     const result = await handleAction({
       ...baseParams,
@@ -430,9 +418,7 @@ describe('handleAction', () => {
     });
 
     expect(result).to.deep.equal({});
-    expect(
-      triggerStub.calledOnceWith('me', 'proj-1', 'b-1', { version: 'sha-abc', onlyFailed: false }),
-    ).to.be.true;
+    expect(triggerStub.calledOnceWith('me', 'proj-1', 'b-1', { version: 'sha-abc', onlyFailed: false })).to.equal(true);
   });
 
   it('returns empty object for unsupported action', async () => {

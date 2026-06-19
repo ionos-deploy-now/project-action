@@ -1,5 +1,6 @@
 // @actions/core@3.x is ESM-only; pre-populate require.cache with a CJS stub
 // so ts-node's CJS require can load it during tests.
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const Module = require('module');
 
 const fakeCore = {
