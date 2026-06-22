@@ -43529,88 +43529,6 @@ var esm_default = axiosRetry;
 var qs = __toESM(require_lib());
 
 // src/main/action/api/api.ts
-var IonosSpaceDeploymentApiClient = class {
-  constructor(httpClient2) {
-    this.httpClient = httpClient2;
-  }
-  /**
-   * HTTP POST /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments
-   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.createDeployment
-   */
-  createDeployment(accountId, projectId, branchId, deployment, options) {
-    return this.httpClient.request({ method: "POST", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments`, data: deployment, options });
-  }
-  /**
-   * HTTP GET /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments
-   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.getDeployments
-   */
-  getDeployments(accountId, projectId, branchId, queryParams, options) {
-    return this.httpClient.request({ method: "GET", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments`, queryParams, options });
-  }
-  /**
-   * HTTP DELETE /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments/{deploymentId}
-   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.deleteDeployment
-   */
-  deleteDeployment(accountId, projectId, branchId, deploymentId, options) {
-    return this.httpClient.request({ method: "DELETE", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments/${deploymentId}`, options });
-  }
-  /**
-   * HTTP GET /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments/{deploymentId}
-   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.getDeployment
-   */
-  getDeployment(accountId, projectId, branchId, deploymentId, options) {
-    return this.httpClient.request({ method: "GET", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments/${deploymentId}`, options });
-  }
-  /**
-   * HTTP PATCH /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments/{deploymentId}
-   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.patchDeployment
-   */
-  patchDeployment(accountId, projectId, branchId, deploymentId, deploymentPatch, options) {
-    return this.httpClient.request({ method: "PATCH", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments/${deploymentId}`, data: deploymentPatch, options });
-  }
-  /**
-   * HTTP POST /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments/{deploymentId}/connect-domain
-   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.connectDomain
-   */
-  connectDomain(accountId, projectId, branchId, deploymentId, connectDomain, options) {
-    return this.httpClient.request({ method: "POST", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments/${deploymentId}/connect-domain`, data: connectDomain, options });
-  }
-  /**
-   * HTTP POST /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments/{deploymentId}/databases/{databaseId}/phpmyadmin-sessions
-   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.createPhpMyAdminSession
-   */
-  createPhpMyAdminSession(accountId, projectId, branchId, deploymentId, databaseId, options) {
-    return this.httpClient.request({ method: "POST", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments/${deploymentId}/databases/${databaseId}/phpmyadmin-sessions`, options });
-  }
-  /**
-   * HTTP POST /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments/{deploymentId}/disconnect-domain
-   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.disconnectDomain
-   */
-  disconnectDomain(accountId, projectId, branchId, deploymentId, options) {
-    return this.httpClient.request({ method: "POST", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments/${deploymentId}/disconnect-domain`, options });
-  }
-  /**
-   * HTTP PUT /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments/{deploymentId}/state
-   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.updateDeploymentState
-   */
-  updateDeploymentState(accountId, projectId, branchId, deploymentId, deploymentState, options) {
-    return this.httpClient.request({ method: "PUT", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments/${deploymentId}/state`, data: deploymentState, options });
-  }
-  /**
-   * HTTP PUT /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments/{deploymentId}/webspaces/{webspaceId}/cron-jobs
-   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.configureCronJobs
-   */
-  configureCronJobs(accountId, projectId, branchId, deploymentId, webspaceId, cronJobs, options) {
-    return this.httpClient.request({ method: "PUT", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments/${deploymentId}/webspaces/${webspaceId}/cron-jobs`, data: cronJobs, options });
-  }
-  /**
-   * HTTP POST /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments/{deploymentId}/webspaces/{webspaceId}/directory-sessions
-   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.createDirectorySession
-   */
-  createDirectorySession(accountId, projectId, branchId, deploymentId, webspaceId, options) {
-    return this.httpClient.request({ method: "POST", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments/${deploymentId}/webspaces/${webspaceId}/directory-sessions`, options });
-  }
-};
 var IonosSpaceBranchApiClient = class {
   constructor(httpClient2) {
     this.httpClient = httpClient2;
@@ -43747,6 +43665,88 @@ var IonosSpaceProjectApiClient = class {
     return this.httpClient.request({ method: "POST", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/validate-deployment-name`, data: deploymentNameValidationRequest, options });
   }
 };
+var IonosSpaceDeploymentApiClient = class {
+  constructor(httpClient2) {
+    this.httpClient = httpClient2;
+  }
+  /**
+   * HTTP POST /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments
+   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.createDeployment
+   */
+  createDeployment(accountId, projectId, branchId, deployment, options) {
+    return this.httpClient.request({ method: "POST", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments`, data: deployment, options });
+  }
+  /**
+   * HTTP GET /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments
+   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.getDeployments
+   */
+  getDeployments(accountId, projectId, branchId, queryParams, options) {
+    return this.httpClient.request({ method: "GET", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments`, queryParams, options });
+  }
+  /**
+   * HTTP DELETE /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments/{deploymentId}
+   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.deleteDeployment
+   */
+  deleteDeployment(accountId, projectId, branchId, deploymentId, options) {
+    return this.httpClient.request({ method: "DELETE", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments/${deploymentId}`, options });
+  }
+  /**
+   * HTTP GET /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments/{deploymentId}
+   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.getDeployment
+   */
+  getDeployment(accountId, projectId, branchId, deploymentId, options) {
+    return this.httpClient.request({ method: "GET", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments/${deploymentId}`, options });
+  }
+  /**
+   * HTTP PATCH /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments/{deploymentId}
+   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.patchDeployment
+   */
+  patchDeployment(accountId, projectId, branchId, deploymentId, deploymentPatch, options) {
+    return this.httpClient.request({ method: "PATCH", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments/${deploymentId}`, data: deploymentPatch, options });
+  }
+  /**
+   * HTTP POST /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments/{deploymentId}/connect-domain
+   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.connectDomain
+   */
+  connectDomain(accountId, projectId, branchId, deploymentId, connectDomain, options) {
+    return this.httpClient.request({ method: "POST", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments/${deploymentId}/connect-domain`, data: connectDomain, options });
+  }
+  /**
+   * HTTP POST /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments/{deploymentId}/databases/{databaseId}/phpmyadmin-sessions
+   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.createPhpMyAdminSession
+   */
+  createPhpMyAdminSession(accountId, projectId, branchId, deploymentId, databaseId, options) {
+    return this.httpClient.request({ method: "POST", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments/${deploymentId}/databases/${databaseId}/phpmyadmin-sessions`, options });
+  }
+  /**
+   * HTTP POST /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments/{deploymentId}/disconnect-domain
+   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.disconnectDomain
+   */
+  disconnectDomain(accountId, projectId, branchId, deploymentId, options) {
+    return this.httpClient.request({ method: "POST", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments/${deploymentId}/disconnect-domain`, options });
+  }
+  /**
+   * HTTP PUT /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments/{deploymentId}/state
+   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.updateDeploymentState
+   */
+  updateDeploymentState(accountId, projectId, branchId, deploymentId, deploymentState, options) {
+    return this.httpClient.request({ method: "PUT", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments/${deploymentId}/state`, data: deploymentState, options });
+  }
+  /**
+   * HTTP PUT /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments/{deploymentId}/webspaces/{webspaceId}/cron-jobs
+   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.configureCronJobs
+   */
+  configureCronJobs(accountId, projectId, branchId, deploymentId, webspaceId, cronJobs, options) {
+    return this.httpClient.request({ method: "PUT", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments/${deploymentId}/webspaces/${webspaceId}/cron-jobs`, data: cronJobs, options });
+  }
+  /**
+   * HTTP POST /v4/accounts/{accountId}/projects/{projectId}/branches/{branchId}/deployments/{deploymentId}/webspaces/{webspaceId}/directory-sessions
+   * Java method: com.ionos.beat.ionos.space.api.v4.IonosSpaceDeploymentApi.createDirectorySession
+   */
+  createDirectorySession(accountId, projectId, branchId, deploymentId, webspaceId, options) {
+    return this.httpClient.request({ method: "POST", url: uriEncoding`v4/accounts/${accountId}/projects/${projectId}/branches/${branchId}/deployments/${deploymentId}/webspaces/${webspaceId}/directory-sessions`, options });
+  }
+};
 function uriEncoding(template, ...substitutions) {
   let result = "";
   for (let i = 0; i < substitutions.length; i++) {
@@ -43788,12 +43788,6 @@ var AxiosHttpClient = class {
     });
   }
 };
-var AxiosIonosSpaceDeploymentApiClient = class extends IonosSpaceDeploymentApiClient {
-  constructor(baseURL, axiosInstance = axios_default.create()) {
-    axiosInstance.defaults.baseURL = baseURL;
-    super(new AxiosHttpClient(axiosInstance));
-  }
-};
 var AxiosIonosSpaceBranchApiClient = class extends IonosSpaceBranchApiClient {
   constructor(baseURL, axiosInstance = axios_default.create()) {
     axiosInstance.defaults.baseURL = baseURL;
@@ -43801,6 +43795,12 @@ var AxiosIonosSpaceBranchApiClient = class extends IonosSpaceBranchApiClient {
   }
 };
 var AxiosIonosSpaceProjectApiClient = class extends IonosSpaceProjectApiClient {
+  constructor(baseURL, axiosInstance = axios_default.create()) {
+    axiosInstance.defaults.baseURL = baseURL;
+    super(new AxiosHttpClient(axiosInstance));
+  }
+};
+var AxiosIonosSpaceDeploymentApiClient = class extends IonosSpaceDeploymentApiClient {
   constructor(baseURL, axiosInstance = axios_default.create()) {
     axiosInstance.defaults.baseURL = baseURL;
     super(new AxiosHttpClient(axiosInstance));
